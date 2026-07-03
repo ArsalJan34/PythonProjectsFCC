@@ -5,3 +5,15 @@ def exam_analyzer(students):
   Failed_students = 0
   grades = []
   for student in students:
+    if student == "END":
+      break
+    if student == "":
+      continue
+    parts = student.split()
+
+    if len(parts) != "2":
+      invalid_students += 1
+      continue
+
+
+
