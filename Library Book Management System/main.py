@@ -1,4 +1,4 @@
-class book:
+class Book:
   def __init__(self,title,copies,status):
     self.title = title
     self.copies = copies
@@ -52,12 +52,39 @@ def library_analyzer(books_records):
        status = "Well Stocked"
        stocked_book += 1
 
+    book_obj = Book(title,copies,status)
+    Book_objects.append(book_obj)
+    print(f"\nLetters in {title}:")
+    for letter in title:
+       print(letter)
+  return (
+     Book_objects,
+     valid_books,
+     invalid_books,
+     available_books,
+     low_stock,
+     out_stock,
+     stocked_book
+    )
+records = []
+num = int(input("how many book records do you want to enter ? "))
+for i in range(num):
+   record = input(f"Enter record {i+1}(Title copies): ")
+   records.append(record)
 
+result = library_analyzer(records)
+books = result[0]
 
+print("\n========== LIBRARY REPORT ==========")
 
+print(f"Valid Books      : {result[1]}")
+print(f"Invalid Books    : {result[2]}")
+print(f"Available Books  : {result[3]}")
+print(f"Low Stock Books  : {result[4]}")
+print(f"Out of Stock     : {result[5]}")
+print(f"Well Stocked     : {result[6]}")
 
+print("\nBook Details")
 
-
-
-
-
+for book in books:
+    print(f"{book.title} | Copies: {book.copies} | Status: {book.status}")
