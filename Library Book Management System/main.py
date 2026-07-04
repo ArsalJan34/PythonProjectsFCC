@@ -19,9 +19,44 @@ def library_analyzer(books_records):
       break
     if record == "":
       continue
-    record = record.split()
+    parts = record.split()
 
-    if record != 2:
+    if len(parts) != 2:
+        invalid_books += 1
+        continue
+
+    title = parts[0]
+    copies = parts[1]
+
+    if not copies.isdigit():
+        invalid_books += 1
+        continue
+
+    copies = int(copies)
+    if copies < 0:
+       invalid_books += 1
+       continue
+
+    valid_books += 1
+
+    if copies == 0:
+       status = "Out of stock"
+       out_stock += 1
+    elif copies <= 3:
+       status = "Low Stock"
+       low_stock += 1
+    elif copies <= 10:
+       status = "Stock Avaible"
+       available_books += 1
+    else:
+       status = "Well Stocked"
+       stocked_book += 1
+
+
+
+
+
+
 
 
 
