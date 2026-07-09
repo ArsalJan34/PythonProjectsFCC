@@ -7,3 +7,13 @@ medical_records = [
   { 'patient_id': 'P1003', 'age': 29, 'gender': 'female', 'diagnosis': 'Asthma', 'medications': ['Albuterol'], 'last_visit_id': 'v2303', },
 
   { 'patient_id': 'p1004', 'age': 56, 'gender': 'Male', 'diagnosis': 'Chronic Back Pain', 'medications': ['Ibuprofen', 'Physical Therapy'], 'last_visit_id': 'V2304', } ]
+
+
+def find_invalid_records(patient_id, age, gender, diagnosis, medications, last_visit_id):
+  constraints = {
+  'patient_id': isinstance(patient_id,str) and re.fullmatch(r'p/d+', patient_id, re.IGNORECASE),
+  'age': isinstance(age,int) and age >= 18,
+  'gender': isinstance(gender,str) and gender.lower in ('male', 'female'),
+  'diagnosis' : isinstance(diagnosis,str) or diagnosis is None,
+  'medications': isinstance(medications,list) and all(isinstance(item,str) for item in medications),
+  }
