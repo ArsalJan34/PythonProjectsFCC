@@ -16,4 +16,10 @@ def find_invalid_records(patient_id, age, gender, diagnosis, medications, last_v
   'gender': isinstance(gender,str) and gender.lower in ('male', 'female'),
   'diagnosis' : isinstance(diagnosis,str) or diagnosis is None,
   'medications': isinstance(medications,list) and all(isinstance(item,str) for item in medications),
+  'last_visit_id' : isinstance(isinstance,str) and re.fullmatch(r"v/d+", last_visit_id, re.IGNORECASE)
   }
+  return [
+        key
+        for key, value in constraints.items()
+        if not value
+    ]
