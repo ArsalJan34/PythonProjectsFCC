@@ -23,3 +23,6 @@ def find_invalid_records(patient_id, age, gender, diagnosis, medications, last_v
         for key, value in constraints.items()
         if not value
     ]
+
+def validate(data):
+  is_sequence = isinstance(data,(list,tuple))
