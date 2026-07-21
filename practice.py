@@ -1,16 +1,14 @@
-class Vehicle:
-  def __init__(self,brand,model):
-    self.brand = brand
-    self.model = model
-  def description(self):
-      return f"{self.brand} {self.model}"
-class Car(Vehicle):
-  def description(self):
-    return f"Car: {self.brand} {self.model}"
-class Bike(Vehicle):
-  def description(self):
-    return f"Bike: {self.brand} {self.model}"
+item_name = "Steak"
+price = 29.99
+quantity = 2
 
-vehicles = [Car("Toyota", "Corolla"), Bike("Yamaha", "R1")]
-for vehicle in vehicles:
-  print(vehicle.description())
+subtotal = price * quantity
+subtax = subtotal * 15/100
+subtip = subtotal * 10/100
+grandtotal = subtotal + subtax + subtip
+print(f'Item : {item_name} (x2)')
+print(f"Subtotal: ${subtotal:.2f}")
+print(f"Tax : ${subtax:.2f}")
+print(f"Tip : ${subtip:.2f}")
+print(f"Grand total: ${grandtotal:.2f}")
+
