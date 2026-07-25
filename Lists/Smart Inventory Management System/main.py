@@ -13,3 +13,13 @@ inventory.append("docking_station")
 backup_inventory = inventory.copy()
 
 # pop() and remove() using them to process item removals
+sold_item = inventory.pop(2) #removes item at index 2
+inventory.remove("keyboard")
+
+# using sort() and reverse() - reorder stock alphabatically tehn reverse it
+inventory.sort()
+print("Reversed inventory:", inventory)
+
+inventory.clear()
+print("Cleared inventory:", inventory)
+print("Backup remains safe: ", backup_inventory)
